@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "FitLife",
+    "slug": "fitlife",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B1220"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fitlife.app"
+    },
+    "android": {
+      "package": "com.fitlife.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "name": "FitLife",
+      "shortName": "FitLife",
+      "lang": "nl"
+    }
+  }
+}
