@@ -32,7 +32,7 @@ Expo Go en de QR-code met `npx expo start`.
 
 Open daarna de app in Expo Go, iOS Simulator, Android Emulator of web.
 
-## PWA bouwen voor Cloudflare Pages
+## PWA bouwen voor Cloudflare
 
 Maak eerst de productie-build:
 
@@ -45,6 +45,16 @@ De deploybare bestanden staan daarna in `dist`. Gebruik in Cloudflare Pages:
 - **Build command:** `npm run build:web`
 - **Build output directory:** `dist`
 - **Framework preset:** Expo / None
+
+Gebruik als Cloudflare Workers Static Assets wordt gebruikt:
+
+- **Deploy command:** `npx wrangler deploy`
+- **Build command:** `npm run build:web`
+- **Assets directory:** `dist`
+- Commit ook `wrangler.jsonc` zodat Wrangler geen interactieve projectconfiguratie hoeft te maken.
+
+Gebruik niet `npx expo export -p web` als build command, omdat daarmee de
+extra PWA-meta-tags uit `scripts/prepare-pwa.js` niet worden toegevoegd.
 
 Cloudflare Pages serveert daarna FitLife via HTTPS. Open de URL op je telefoon
 en kies in Safari **Deel > Zet op beginscherm**. In Chrome/Android kies je
