@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,
   Animated,
@@ -11,7 +11,6 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  useRef,
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -44,7 +43,7 @@ function Ring({ value, color, icon, label, detail, size = 132, theme }) {
   const border = Math.max(5, Math.round(size / 18));
   const progress = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    Animated.timing(progress, { toValue: percent, duration: 700, useNativeDriver: true }).start();
+    Animated.timing(progress, { toValue: percent, duration: 700, useNativeDriver: Platform.OS !== 'web' }).start();
   }, [percent, progress]);
   const rotation = progress.interpolate({ inputRange: [0, 100], outputRange: ['-45deg', '315deg'] });
   return (
